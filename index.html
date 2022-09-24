@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h1>Yun's Todo List</h1>
+    <script>
+        function submitTodoHandler() {
+            alert("입력한 텍스트 li로 보내기")
+        }
+        function inputTextHandler() {
+            console.log(window.document.getElementById('todoInput').value)
+        }
+        function statusHandler() {
+            const status = window.document.getElementById('todoStatus');
+            if(status.option.value = "all"){
+                alert("all")
+            } else if(status.option.value = "completed") {
+                alert("completed")
+            } else {
+                alert("uncompleted")
+            }
+        }
+        function completeHandler() {
+            alert("할일 완료하기")
+        }
+        function deleteHandler() {
+            alert("할일 취소하기")
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" id="todoInput" onkeypress="inputTextHandler()" value="">
+        <button onclick="submitTodoHandler()">submit</button>
+    </div>
+    <div>
+        <select id="todoStatus">
+            <option value="all">all</option>
+            <option value="completed">completed</option>
+            <option value="uncompleted">uncompleted</option>
+        </select>
+    </div>
+    <div>
+        <ul>
+            <li>test</li>
+        </ul>
+    </div>
+    <div>
+        <button onclick="completeHandler()">Done</button>
+        <button onclick="deleteHandler()">Delete</button>
+    </div>
+</body>
+</html>

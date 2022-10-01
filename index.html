@@ -6,35 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <h1>Yun's Todo List</h1>
-    <script>
-        function submitTodoHandler() {
-            alert("입력한 텍스트 li로 보내기")
-        }
-        function inputTextHandler() {
-            console.log(window.document.getElementById('todoInput').value)
-        }
-        function statusHandler() {
-            const status = window.document.getElementById('todoStatus');
-            if(status.option.value = "all"){
-                alert("all")
-            } else if(status.option.value = "completed") {
-                alert("completed")
-            } else {
-                alert("uncompleted")
-            }
-        }
-        function completeHandler() {
-            alert("할일 완료하기")
-        }
-        function deleteHandler() {
-            alert("할일 취소하기")
-        }
-    </script>
 </head>
 <body>
     <div>
-        <input type="text" id="todoInput" onkeypress="inputTextHandler()" value="">
-        <button onclick="submitTodoHandler()">submit</button>
+        <input type="text" class="inputText" value="">
+        <button class="submit">submit</button>
     </div>
     <div>
         <select id="todoStatus">
@@ -49,8 +25,52 @@
         </ul>
     </div>
     <div>
-        <button onclick="completeHandler()">Done</button>
-        <button onclick="deleteHandler()">Delete</button>
+        <button class="done">Done</button>
+        <button class="delete">Delete</button>
     </div>
 </body>
+<script>
+    var submitTodo = document.querySelectorAll('.submit');
+    submitTodo.forEach(function(submitTodo){
+        submitTodo.addEventListener('click', function(event){
+            alert('입력한 텍스트 li로 보내기');
+        });
+    });
+
+    var doneTodo = document.querySelectorAll('.done');
+    doneTodo.forEach(function(doneTodo){
+        doneTodo.addEventListener('click', function(event){
+            alert('할일 완료하기');
+        });
+    });
+
+    var deleteTodo = document.querySelectorAll('.delete');
+    deleteTodo.forEach(function(deleteTodo){
+        deleteTodo.addEventListener('click', function(event){
+            alert('할일 취소하기');
+        });
+    });
+
+    var inputText = document.querySelectorAll('.inputText');
+    inputText.forEach(function(inputText){
+        inputText.addEventListener('keypress', function(event){
+            console.log(inputText.value)
+        });
+    });
+
+
+    function inputTextHandler() {
+        console.log(window.document.getElementById('todoInput').value)
+    }
+    function statusHandler() {
+        const status = window.document.getElementById('todoStatus');
+        if(status.option.value = "all"){
+            alert("all")
+        } else if(status.option.value = "completed") {
+            alert("completed")
+        } else {
+            alert("uncompleted")
+        }
+    }
+</script>
 </html>

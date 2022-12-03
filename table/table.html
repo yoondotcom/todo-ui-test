@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+          width: 100%;
+          border: 1px solid #444444;
+          border-collapse: collapse;
+        }
+        th, td {
+          border: 1px solid #444444;
+        }
+      </style>
+      
+</head>
+<body>
+    <table>
+      <tbody class="main-table-tbody">
+        <tr>
+          <td>순번</td>
+          <td>제목</td>
+          <td>이름</td>
+          <td>이메일</td>
+          <td>가입일</td>
+          <td>기능</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <input type="text" placeholder="이름" class="name-data" required>
+    <input type="text" placeholder="이메일" class="email-data" required>
+    <input type="text" placeholder="제목" class="title-data" required>
+    <button class="add-row">행추가</button>
+</body>
+<script>
+const button = document.querySelector('.add-row');
+const tbody = document.querySelector('.main-table-tbody');
+const nameData = document.querySelector('.name-data');
+const emailData = document.querySelector('.email-data');
+const titleData = document.querySelector('.title-data');
+let seq = 0;
+
+button.addEventListener("click", addRow);
+
+function addRow(e) { 
+    e.preventDefault();
+
+    if(nameData.value == '' || emailData.value == '' || titleData.value == '') {
+        alert('이름, 이메일, 제목은 필수값 입니다.');
+    }else {
+        seq = seq + 1;
+        const modifyButton = document.createElement('button');
+        modifyButton.innerHTML = '수정';
+        modifyButton.classList.add('modify-btn');
+
+        const trashButton = document.createElement('button');
+        trashButton.innerHTML = '삭제';
+        trashButton.classList.add('trash-btn');
+    
+        const now = new Date().toLocaleDateString().replace(/\./g, '').replace(/\s/g, '-');;
+
+        const tr = document.createElement('tr');
+        const td1 = document.createElement('td');
+        const td2 = document.createElement('td');
+        const td3 = document.createElement('td');
+        const td4 = document.createElement('td');
+        const td5 = document.createElement('td');
+        const td6 = document.createElement('td');
+    
+        td1.innerText = seq;
+        td2.innerText = titleData.value;
+        td3.innerText = nameData.value;
+        td4.innerText = emailData.value;
+        td5.innerText = now;
+        td6.appendChild(modifyButton);
+        td6.appendChild(trashButton);
+
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+        tr.appendChild(td5);
+        tr.appendChild(td6);
+        tbody.appendChild(tr);
+    }
+    
+}
+
+</script>
+</html>

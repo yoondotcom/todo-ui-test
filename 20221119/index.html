@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<button class = "event-button">버튼을 누루시오.</button>
+	<h1 class = "event-data">글자가 바뀝니다.</h1>
+    <div class = "input-data"></div>
+</body>
+<script>
+const eventButton = document.querySelector(".event-button");
+const eventData = document.querySelector(".event-data");
+const inputData = document.querySelector(".input-data");
+const body = document.querySelector('body');
+
+eventButton.addEventListener("click", changeEvent);
+
+function changeEvent(e) { 
+
+    e.preventDefault();   
+
+    const colorList = ['blue', 'green', 'white', 'red', 'yellow', 'black', 'skyblue', 'pink'];
+    const num1 = Math.floor(Math.random() * colorList.length);
+    const num2 = Math.floor(Math.random() * colorList.length);
+
+    body.style.backgroundColor = colorList[num1];
+    eventData.style.color = colorList[num2];
+
+    const newDiv = document.createElement("div");
+    newDiv.innerHTML = '안녕하세요.';
+    inputData.appendChild(newDiv);
+
+}
+</script>
+</html>

@@ -1,23 +1,46 @@
-const todoButtons = document.querySelectorAll(".todo-button");
-const todoInputs = document.querySelectorAll(".todo-input");
-const todoResult = document.querySelector(".todo-result");
+const todoInput = document.querySelector(".todo-input");
+const todoButton = document.querySelector(".todo-button");
+const todoList = document.querySelector(".todo-list");
 
-todoButtons[0].addEventListener("click", eventAll);
-todoButtons[1].addEventListener("click", eventAll);
-todoButtons[2].addEventListener("click", eventAll);
-todoButtons[3].addEventListener("click", eventAll);
-todoButtons[4].addEventListener("click", eventAll);
+todoButton.addEventListener("click", addTodo);
+todoList.addEventListener("click", checkOne);
 
+function addTodo(e) {
 
+  e.preventDefault();   
+  const todoDiv = document.createElement("div");
+  todoDiv.classList.add("todo");
 
-function eventAll(event) {
+  const newTodo = document.createElement("li");
+  newTodo.innerText = todoInput.value;
 
-    todoResult.innerHTML = "";
+  newTodo.classList.add("todo-item");
+  todoDiv.appendChild(newTodo);
+  todoInput.value = "";
 
-    if (event.target.id !== "btn-5") {
-        todoResult.innerHTML = todoInputs[event.target.value].value;
-    } else {
-        todoInputs.forEach(v => {
-        todoResult.innerHTML += v.value + " ";});
-    }
+  const completeButton = document.createElement("button");
+  completeButton.innerHTML = `DONE`;
+  completeButton.classList.add("complete-btn");
+  todoDiv.appendChild(completeButton);
+
+  const trashButton = document.createElement("button");
+  trashButton.innerHTML = `DELETE`;
+  trashButton.classList.add("trash-btn");
+  todoDiv.appendChild(trashButton);
+
+  todoList.appendChild(todoDiv);
+}
+function checkOne(e) {
+  const item = e.target;
+  console.log(item);
+
+  if(item.classList[0] === "trash-btn") {
+    todoDiv.appendRemove();
+  }
+
+  if(item.classList[0] === "complete-btn") {
+    console.log('com' + item);
+    todo
+  }
+
 }

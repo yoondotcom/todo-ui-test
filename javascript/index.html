@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+</body>
+<script>
+    const result = document.querySelector('#result');
+
+    const cars = ["Saab", "Volvo", "BMW"];
+    cars.push("쉐보레");  
+    cars[0] = "현대";
+    cars[1] = "기아";
+    cars[2] = "테슬라";
+    console.log(cars);
+
+    result.innerText = cars;
+</script>
+</html>

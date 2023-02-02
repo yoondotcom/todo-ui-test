@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>javascriptTest</h1>
+    <input type ="text" class = "p1"><br>
+    <input type ="text" class = "p2">
+    <button class = "add-button">더하기.</button>
+</body>
+<script>
+const p1 = document.querySelector(".p1");
+const p2 = document.querySelector(".p2");
+const addButton = document.querySelector(".add-button");
+const body = document.querySelector('body');
+
+addButton.addEventListener("click", added);
+
+function added(e) {
+    const result = parseInt(p1.value) + parseInt(p2.value);
+    const newDiv = document.createElement("div");
+    newDiv.innerHTML = result;
+    body.appendChild(newDiv);
+}
+
+
+
+
+</script>
+</html>

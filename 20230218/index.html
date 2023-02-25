@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a name="list">the list</a>
+    <ul>
+        <li><a href="http://google.com">http://google.com</a></li>
+        <li><a href="/tutorial">/tutorial.html</a></li>
+        <li><a href="local/path">local/path</a></li>
+        <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+        <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+        <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+    </ul>
+</body>
+<script>
+    // for( link of links ) {
+	// 		let href = link.getAttribute("href");
+	// 		if(!href) continue;
+	// 		if(!href.startsWith("http://")) continue;
+	// 		if(href.startsWith("http://internal.com")) continue;
+	// 		link.style.color = "orange";
+	// 	}
+
+    const a = Array.from(document.querySelectorAll("a"));
+    a.filter(link => link.getAttribute("href"))
+     .filter(link => link.getAttribute("href").startsWith("http://") || link.getAttribute("href").startsWith("ftp://"))
+     .filter(link => link.getAttribute("href") !== 'http://internal.com/test') 
+     .forEach(c=>c.style.color = "orange")
+  
+  </script>
+</html>

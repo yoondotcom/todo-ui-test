@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="age" value="1">
+        <input type="text" name="age" value="2">
+    </form>
+
+    <form>
+        <input type="text" name="age" value="100">
+        <input type="text" name="age" value="200">
+    </form>
+</body>
+<script>
+    let form = document.forms[0];
+    let form2 = document.forms[1];
+    
+    let ageElems = form.elements.age;
+    let ageElems2 = form2.elements.age;
+
+    console.log(ageElems[0].value);
+    console.log(ageElems[1].value);
+    console.log(ageElems2[0].value);
+    console.log(ageElems2[1].value);
+</script>
+</html>

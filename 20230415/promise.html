@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Wine List</title>
+    </head>
+    <body>
+        <h1>Red Wine List</h1>
+        <ul id="wine-list"></ul>
+    </body>
+    <script>
+        function fetchWineList() {
+            return new Promise((resolve, reject) => {
+                fetch("https://api.sampleapis.com/wines/reds")
+                    .then(response => response.json())
+                    .then(data => resolve(data));
+            });
+        }
+
+        function displayWineList(wineList) {
+            const listElement = document.getElementById("wine-list");
+            wineList.forEach(wine => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `${wine.wine} (${wine.id})`;
+                listElement.appendChild(listItem);
+            });
+        }
+
+        fetchWineList()
+            .then(data => displayWineList(data));
+    </script>
+</html>
